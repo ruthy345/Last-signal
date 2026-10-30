@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>LAST SIGNAL — Online Co-op Survival</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span> LAST SIGNAL <small>ONLINE</small></div>
+    <div class="connection"><span id="dot" class="dot"></span><span id="connectionText">Connecting…</span></div>
+  </header>
+
+  <section id="lobby" class="panel lobby">
+    <div class="hero-art" aria-hidden="true">🌍 <span>☄️</span></div>
+    <p class="kicker">THE WORLD WENT DARK. THE RESISTANCE DIDN'T.</p>
+    <h1>Humanity's last stand<br><em>starts with you.</em></h1>
+    <p class="intro">An alien fleet has taken over Earth. Team up with players around the world, survive each wave and reclaim the signal towers.</p>
+    <label for="name">YOUR CALLSIGN</label>
+    <input id="name" maxlength="16" placeholder="e.g. Nova" autocomplete="nickname">
+    <button id="join" class="primary">JOIN THE RESISTANCE <span>→</span></button>
+    <p class="micro">Co-op browser game · No download · Keyboard + mouse</p>
+  </section>
+
+  <section id="game" class="hidden">
+    <div class="hud">
+      <div class="hudbox"><span>WAVE</span><strong id="wave">1</strong></div>
+      <div class="hudbox"><span>YOUR SCORE</span><strong id="score">0</strong></div>
+      <div class="hudbox"><span>TEAM ONLINE</span><strong id="online">0</strong></div>
+      <div class="hudbox healthbox"><span>YOUR ENERGY</span><strong id="health">100%</strong><div class="healthbar"><i id="healthFill"></i></div></div>
+    </div>
+    <div class="arena-wrap">
+      <canvas id="arena" width="900" height="560" aria-label="Top-down cooperative alien survival game"></canvas>
+      <div id="respawn" class="respawn hidden"><b>ENERGY DEPLETED</b><span>Waiting for rescue…</span></div>
+    </div>
+    <div class="below">
+      <div class="controls"><b>CONTROLS</b><span>WASD / Arrow keys — move</span><span>Mouse — aim</span><span>Click / Space — pulse blaster</span><span>Team up to survive the waves.</span></div>
+      <div class="comms"><b>RESISTANCE COMMS</b><div id="feed" class="feed" aria-live="polite"><p>Signal established. Find your team.</p></div><form id="chatForm"><input id="chatInput" maxlength="100" placeholder="Send a team message…" autocomplete="off"><button aria-label="Send message">➤</button></form></div>
+    </div>
+  </section>
+  <footer>LAST SIGNAL ONLINE <span>Fictional sci-fi action · Play cooperatively</span></footer>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
